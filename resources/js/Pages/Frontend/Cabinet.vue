@@ -1,6 +1,16 @@
 <template>
     <frontend-layout>
-        <a class="block" :href="route('item', item.document.id)" v-for="item in items" :key="`item_${item.id}`">{{ item.document.content.title }}</a>
+        <template #nav>{{ cabinet.title }}</template>
+        <template #back>&larr; Zpět</template>
+
+        <div class="flex flex-wrap -mx-[.5vw]">
+            <div class="px-[.5vw] py-[1vw] w-1/4" v-for="item in items" :key="`item_${item.id}`">
+                <a class="block" :href="route('item', item.document.id)">
+                    <div class="bg-gray-500" style="aspect-ratio: 4/3"></div>
+                    <div class="font-bold mt-[.5vw] uppercase">{{ item.document.content.title }}</div>
+                </a>
+            </div>
+        </div>
     </frontend-layout>
 </template>
 

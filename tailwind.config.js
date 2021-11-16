@@ -16,7 +16,8 @@ module.exports = {
                 yellow: '#ffeb3d',
             },
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Kolektiv Grotesk X', ...defaultTheme.fontFamily.sans],
+                display: ['Say What You Feel Black Cond', ...defaultTheme.fontFamily.sans],
             },
         },
     },

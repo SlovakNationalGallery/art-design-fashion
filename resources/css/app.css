@@ -1,3 +1,59 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@layer base {
+    @font-face {
+        font-family: 'Say What You Feel Black Cond';
+        src: url('../fonts/SayWhatYouFeel-Condensed.woff2') format('woff2'),
+            url('../fonts/SayWhatYouFeel-Condensed.woff') format('woff');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Kolektiv Grotesk X';
+        src: url('../fonts/KolektivGroteskX-Regular.woff2') format('woff2'),
+            url('../fonts/KolektivGroteskX-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Kolektiv Grotesk X';
+        src: url('../fonts/KolektivGroteskX-Bold.woff2') format('woff2'),
+            url('../fonts/KolektivGroteskX-Bold.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Kolektiv Grotesk X';
+        src: url('../fonts/KolektivGroteskX-BoldItalic.woff2') format('woff2'),
+            url('../fonts/KolektivGroteskX-BoldItalic.woff') format('woff');
+        font-weight: bold;
+        font-style: italic;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Kolektiv Grotesk X';
+        src: url('../fonts/KolektivGroteskX-Italic.woff2') format('woff2'),
+            url('../fonts/KolektivGroteskX-Italic.woff') format('woff');
+        font-weight: normal;
+        font-style: italic;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Kolektiv Grotesk X Mono';
+        src: url('../fonts/KolektivGroteskX-Mono.woff2') format('woff2'),
+            url('../fonts/KolektivGroteskX-Mono.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
+}

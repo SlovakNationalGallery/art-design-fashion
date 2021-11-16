@@ -1,7 +1,19 @@
 <template>
     <frontend-layout>
-        <div v-if="item">
-            {{ item.document.content.title }}
+        <template #nav>
+            {{ item.document.content.additionals.location[1] }}
+        </template>
+        <template #back>&larr; Zpět</template>
+
+        <div class="flex" v-if="item">
+            <div class="w-1/2">
+                <div class="bg-gray-100" style="aspect-ratio: 9/16"></div>
+            </div>
+            <div class=" text-2xl w-1/2">
+                <h1>{{ title }}</h1>
+                <div>{{ author }}</div>
+                <div>{{ item.document.content.dating }}</div>
+            </div>
         </div>
     </frontend-layout>
 </template>
@@ -24,6 +36,18 @@ export default {
         }).catch(() => {
             // error
         })
+    },
+    computed: {
+        title() {
+            if (this.item.document.content.title === 'bez názvu') {
+                return this.item.document.content.medium // todo object
+            }
+
+            return this.item.document.content.title
+        },
+        author() {
+            return this.item.document.content.author[0] // todo comma split
+        }
     }
 }
 </script>
