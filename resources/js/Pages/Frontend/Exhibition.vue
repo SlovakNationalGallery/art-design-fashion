@@ -1,6 +1,8 @@
 <template>
     <frontend-layout>
-        exhibition
+        <a :href="route('cabinet', cabinet.id)" v-for="cabinet in exhibition.cabinets" :key="`cabinet_${cabinet.id}`">
+            {{ cabinet.title }}
+        </a>
     </frontend-layout>
 </template>
 
@@ -8,6 +10,7 @@
 import FrontendLayout from '@/Layouts/FrontendLayout.vue'
 
 export default {
-    components: { FrontendLayout }
+    components: { FrontendLayout },
+    props: ['exhibition'],
 }
 </script>
