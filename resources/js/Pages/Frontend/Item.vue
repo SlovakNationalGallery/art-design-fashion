@@ -1,18 +1,30 @@
 <template>
     <frontend-layout>
-        <template #nav>
+        <template #nav v-if="item">
             {{ item.document.content.additionals.location[1] }}
         </template>
         <template #back>&larr; Zpět</template>
 
-        <div class="flex" v-if="item">
-            <div class="w-1/2">
-                <div class="bg-gray-100" style="aspect-ratio: 9/16"></div>
+        <div class="flex mx-[-1.5vw]" v-if="item">
+            <div class="w-1/2 px-[1.5vw] py-[.5vw]">
+                <img class="mx-auto" :src="item.model.image_url" alt="">
             </div>
-            <div class=" text-2xl w-1/2">
-                <h1>{{ title }}</h1>
-                <div>{{ author }}</div>
-                <div>{{ item.document.content.dating }}</div>
+            <div class="w-1/2 px-[1.5vw] py-[.5vw]">
+                <div class="font-bold mb-[2vw] text-2xl">
+                    <p>{{ item.document.content.title }}</p>
+                    <p>{{ item.document.content.dating }}</p>
+                    <p>{{ item.document.content.author.join(', ') }}</p>
+                </div>
+                <div class="font-bold my-[2vw] text-lg">
+                    <p v-for="(label, attr) in attrs" :key="attr">
+                        <template v-if="formatAttr(item.document.content[attr])">
+                            {{ label }}: {{ formatAttr(item.document.content[attr]) }}
+                        </template>
+                    </p>
+                </div>
+                <p class="font-bold my-[2vw] max-w-[40vw] text-lg">
+                    {{ item.document.content.description }}
+                </p>
             </div>
         </div>
     </frontend-layout>
@@ -26,27 +38,41 @@ export default {
     props: ['id'],
     data() {
         return {
-            item: null
+            item: null,
+            attrs: {
+                'dating': 'Datace',
+                'measurement': 'Rozměry',
+                'work_type': 'Výtvarný druh',
+                'topic': 'Námět',
+                'medium': 'Materiál',
+                'technique': 'Technika',
+                'state_edition': 'Původnost',
+                'integrity': 'Stupeň integrity',
+                'integrity_work': 'Integrita s díly',
+                'inscription': 'Značení',
+                'gallery': 'Galerie',
+                'identifier': 'Inventární číslo',
+                'aquisition_date': 'Datum akvizice',
+                'place': 'Místo vzniku',
+                'location': 'Lokace',
+            },
         }
     },
     created() {
-        const API_URL = `http://localhost:8002/items/${this.id}`
+        const API_URL = `http://localhost:8001/api/items/${this.id}`
         axios.get(API_URL).then(({ data }) => {
             this.item = data
         }).catch(() => {
             // error
         })
     },
-    computed: {
-        title() {
-            if (this.item.document.content.title === 'bez názvu') {
-                return this.item.document.content.medium // todo object
+    methods: {
+        formatAttr(attr) {
+            if (Array.isArray(attr)) {
+                return attr.join(', ')
             }
 
-            return this.item.document.content.title
-        },
-        author() {
-            return this.item.document.content.author[0] // todo comma split
+            return attr
         }
     }
 }

@@ -3,7 +3,7 @@
         <template #nav>{{ cabinet.title }}</template>
         <template #back>&larr; Zpět</template>
 
-        <div v-masonry="masonry" item-selector="[data-masonry-tile]" transition-duration="0" class="-mx-[.5vw]">
+        <div v-masonry="masonry" item-selector="[data-masonry-tile]" transition-duration="0" class="mx-[-.5vw]">
             <div v-masonry-tile class="px-[.5vw] py-[1vw] w-1/4" v-for="item in items" :key="`item_${item.id}`" data-masonry-tile>
                 <a class="block" :href="route('item', item.document.id)">
                     <div class="bg-gray-500">
