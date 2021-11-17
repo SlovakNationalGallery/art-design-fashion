@@ -1,13 +1,15 @@
 <?php
 
+use App\Http\Resources\ExhibitionResource;
 use App\Models\Cabinet;
 use App\Models\Exhibition;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/exhibitions/{id}', function ($id) {
-    $exhibition = Exhibition::with('cabinets')->findOrFail($id);
-    return Inertia::render('Frontend/Exhibition', compact('exhibition'));
+    $exhibition = Exhibition::with('cabinets.media')->findOrFail($id);
+    $resource = new ExhibitionResource($exhibition);
+    return Inertia::render('Frontend/Exhibition', compact('resource'));
 })->name('frontend.exhibitions.show');
 
 Route::get('/cabinets/{id}', function ($id) {

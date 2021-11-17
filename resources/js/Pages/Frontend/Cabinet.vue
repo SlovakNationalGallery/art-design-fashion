@@ -2,14 +2,15 @@
     <frontend-layout>
         <template #nav>{{ cabinet.title }}</template>
         <template #back>&larr; Zpět</template>
+        <template #content>{{ cabinet.content }}</template>
 
         <div v-masonry="masonry" item-selector="[data-masonry-tile]" transition-duration="0" class="mx-[-.5vw]">
             <div v-masonry-tile class="px-[.5vw] py-[1vw] w-1/4" v-for="item in items" :key="`item_${item.id}`" data-masonry-tile>
                 <a class="block" :href="route('frontend.items.show', item.document.id)">
-                    <div class="bg-gray-500 relative" :style="style(item)">
+                    <div class="bg-gray-500 mb-[.5vw] relative" :style="style(item)">
                         <img class="absolute h-full w-full" :src="item.model.image_url" alt="">
                     </div>
-                    <div class="mt-[.5vw] uppercase">{{ item.document.content.title }}</div>
+                    <div class="uppercase">{{ item.document.content.title }}</div>
                 </a>
             </div>
         </div>

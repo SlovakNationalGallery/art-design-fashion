@@ -24,10 +24,15 @@
                         <jet-select id="exhibition_id" :options="exhibitions" class="mt-1 block w-full" v-model="form.exhibition_id" required />
                     </div>
 
-                    <media-library-attachment name="image" route-prefix="admin/media-library-pro" />
+                    <media-library-attachment
+                        name="images"
+                        route-prefix="admin/media-library-pro"
+                        :initial-value="form.images"
+                        @is-ready-to-submit-change="isReadyToSubmit = $event"
+                        @change="onImagesChange" />
 
                     <div class="flex items-center justify-end mt-4">
-                        <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                        <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing || !isReadyToSubmit">
                             Save
                         </jet-button>
                     </div>
@@ -60,6 +65,7 @@ export default {
     data() {
         return {
             exhibitions: [],
+            isReadyToSubmit: true,
         }
     },
     mounted() {
@@ -69,5 +75,10 @@ export default {
             )
         })
     },
+    methods: {
+        onImagesChange(images) {
+            this.form.images = images
+        }
+    }
 }
 </script>

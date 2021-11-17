@@ -1,12 +1,15 @@
 <template>
     <frontend-layout>
-        <template #nav>{{ exhibition.title }}</template>
+        <template #nav>{{ resource.exhibition.title }}</template>
+        <template #content>{{ resource.exhibition.content }}</template>
 
         <div class="flex flex-wrap mx-[-.5vw]">
-            <div class="px-[.5vw] py-[1vw] w-1/4" v-for="cabinet in exhibition.cabinets" :key="`cabinet_${cabinet.id}`">
+            <div class="px-[.5vw] py-[1vw] w-1/4" v-for="cabinet in resource.exhibition.cabinets" :key="cabinet.id">
                 <a class="block" :href="route('frontend.cabinets.show', cabinet.id)">
-                    <div class="bg-gray-500" style="aspect-ratio: 4/3"></div>
-                    <div class="font-bold mt-[.5vw] uppercase">{{ cabinet.title }}</div>
+                    <div class="bg-gray-500 mb-[.5vw]" v-if="cabinet.images.length">
+                        <img class="w-full" :srcset="cabinet.images[0].srcset" :src="cabinet.images[0].url">
+                    </div>
+                    <div class="font-bold uppercase">{{ cabinet.title }}</div>
                 </a>
             </div>
         </div>
@@ -18,6 +21,6 @@ import FrontendLayout from '@/Layouts/FrontendLayout.vue'
 
 export default {
     components: { FrontendLayout },
-    props: ['exhibition'],
+    props: ['resource'],
 }
 </script>

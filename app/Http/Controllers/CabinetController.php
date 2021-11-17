@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CabinetResource;
 use App\Models\Cabinet;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -42,7 +43,11 @@ class CabinetController extends Controller
             ->fill($request->all())
             ->save();
 
-        return redirect()->route('backend.cabinets.index')->with('status', 'cabinet-created');
+        $cabinet
+            ->addFromMediaLibraryRequest($request->images)
+            ->toMediaCollection('images');
+
+        return redirect()->route('backend.cabinets.index');
     }
 
     /**
@@ -64,7 +69,8 @@ class CabinetController extends Controller
      */
     public function edit(Cabinet $cabinet)
     {
-        return Inertia::render('Backend/Cabinet/Edit', compact('cabinet'));
+        $resource = new CabinetResource($cabinet);
+        return Inertia::render('Backend/Cabinet/Edit', compact('resource'));
     }
 
     /**
@@ -80,7 +86,11 @@ class CabinetController extends Controller
             ->fill($request->all())
             ->save();
 
-        return redirect()->route('backend.cabinets.index')->with('status', 'cabinet-edited');
+        $cabinet
+            ->syncFromMediaLibraryRequest($request->images)
+            ->toMediaCollection('images');
+
+        return redirect()->route('backend.cabinets.index');
     }
 
     /**
@@ -92,6 +102,6 @@ class CabinetController extends Controller
     public function destroy(Cabinet $cabinet)
     {
         $cabinet->delete();
-        return redirect()->route('backend.cabinets.index')->with('status', 'cabinet-deleted');
+        return redirect()->route('backend.cabinets.index');
     }
 }

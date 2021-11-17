@@ -26,7 +26,8 @@ export default {
                 content: '',
                 location: '',
                 exhibition_id: null,
-            })
+                images: null,
+            }),
         }
     },
     methods: {

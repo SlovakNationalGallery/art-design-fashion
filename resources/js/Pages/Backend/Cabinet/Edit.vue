@@ -19,20 +19,21 @@ export default {
         AppLayout,
         CabinetForm,
     },
-    props: ['cabinet'],
+    props: ['resource'],
     data() {
         return {
             form: this.$inertia.form({
-                title: this.cabinet.title,
-                content: this.cabinet.content,
-                location: this.cabinet.location,
-                exhibition_id: this.cabinet.exhibition_id,
+                title: this.resource.cabinet.title,
+                content: this.resource.cabinet.content,
+                location: this.resource.cabinet.location,
+                exhibition_id: this.resource.cabinet.exhibition_id,
+                images: this.resource.cabinet.images,
             })
         }
     },
     methods: {
         submit() {
-            this.form.put(this.route('backend.cabinets.update', this.cabinet.id))
+            this.form.put(this.route('backend.cabinets.update', this.resource.cabinet.id))
         }
     },
 }
