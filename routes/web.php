@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\ExhibitionController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -21,3 +22,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('exhibitions', ExhibitionController::class);
+Route::resource('cabinets', CabinetController::class);

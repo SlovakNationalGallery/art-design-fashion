@@ -22,8 +22,11 @@
                                 <jet-nav-link :href="route('backend.dashboard')" :active="route().current('backend.dashboard')">
                                     Dashboard
                                 </jet-nav-link>
-                                <jet-nav-link :href="route('backend.exhibitions.index')" :active="route().current('backend.exhibitions.index')">
+                                <jet-nav-link :href="route('backend.exhibitions.index')" :active="route().current('backend.exhibitions.*')">
                                     Exhibitions
+                                </jet-nav-link>
+                                <jet-nav-link :href="route('backend.cabinets.index')" :active="route().current('backend.cabinets.*')">
+                                    Cabinets
                                 </jet-nav-link>
                             </div>
                         </div>
@@ -148,8 +151,11 @@
                         <jet-responsive-nav-link :href="route('backend.dashboard')" :active="route().current('backend.dashboard')">
                             Dashboard
                         </jet-responsive-nav-link>
-                        <jet-responsive-nav-link :href="route('backend.exhibitions.index')" :active="route().current('backend.exhibitions.index')">
+                        <jet-responsive-nav-link :href="route('backend.exhibitions.index')" :active="route().current('backend.exhibitions.*')">
                             Exhibitions
+                        </jet-responsive-nav-link>
+                        <jet-responsive-nav-link :href="route('backend.cabinets.index')" :active="route().current('backend.cabinets.*')">
+                            Cabinets
                         </jet-responsive-nav-link>
                     </div>
 

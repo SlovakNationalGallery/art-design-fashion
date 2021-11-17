@@ -13,9 +13,14 @@ class ExhibitionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $exhibitions = Exhibition::all();
+
+        if ($request->wantsJson()) {
+            return response()->json($exhibitions);
+        }
+
         return Inertia::render('Backend/Exhibition/List', compact('exhibitions'));
     }
 
