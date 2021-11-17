@@ -24,6 +24,8 @@
                         <jet-select id="exhibition_id" :options="exhibitions" class="mt-1 block w-full" v-model="form.exhibition_id" required />
                     </div>
 
+                    <media-library-attachment name="image" route-prefix="admin/media-library-pro" />
+
                     <div class="flex items-center justify-end mt-4">
                         <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                             Save
@@ -42,6 +44,7 @@ import JetInput from '@/Jetstream/Input.vue'
 import JetLabel from '@/Jetstream/Label.vue'
 import JetSelect from '@/Jetstream/Select.vue'
 import JetTextarea from '@/Jetstream/Textarea.vue'
+import { MediaLibraryAttachment } from "media-library-pro-vue3-attachment";
 
 export default {
     components: {
@@ -50,6 +53,7 @@ export default {
         JetLabel,
         JetSelect,
         JetTextarea,
+        MediaLibraryAttachment,
     },
     props: ['form'],
     emits: ['submit'],

@@ -18,7 +18,7 @@
                 <div class="my-[2vw] text-lg">
                     <p v-for="(label, attr) in attrs" :key="attr">
                         <template v-if="formatAttr(item.document.content[attr])">
-                            {{ label }}: {{ formatAttr(item.document.content[attr]) }}
+                            {{ label }} &ndash; {{ formatAttr(item.document.content[attr]) }}
                         </template>
                     </p>
                 </div>

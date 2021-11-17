@@ -8,7 +8,7 @@
             </div>
             <div class="flex justify-between px-[.5vw] w-3/4">
                 <span><slot name="nav"></slot></span>
-                <span class="cursor-pointer" @click="back"><slot name="back"></slot></span>
+                <span class="cursor-pointer" @click.once="back"><slot name="back"></slot></span>
             </div>
         </div>
         <slot></slot>

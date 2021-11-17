@@ -23,3 +23,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resource('exhibitions', ExhibitionController::class);
 Route::resource('cabinets', CabinetController::class);
+
+Route::mediaLibrary();
