@@ -5,11 +5,11 @@
 
         <div v-masonry="masonry" item-selector="[data-masonry-tile]" transition-duration="0" class="mx-[-.5vw]">
             <div v-masonry-tile class="px-[.5vw] py-[1vw] w-1/4" v-for="item in items" :key="`item_${item.id}`" data-masonry-tile>
-                <a class="block" :href="route('item', item.document.id)">
+                <a class="block" :href="route('frontend.items.show', item.document.id)">
                     <div class="bg-gray-500">
                         <img :src="item.model.image_url" alt="">
                     </div>
-                    <div class="font-bold mt-[.5vw] uppercase">{{ item.document.content.title }}</div>
+                    <div class="mt-[.5vw] uppercase">{{ item.document.content.title }}</div>
                 </a>
             </div>
         </div>
