@@ -22,10 +22,6 @@
 
 <script>
 export default {
-    created() {
-        window.axios.defaults.params = {}
-        window.axios.defaults.params['locale'] = 'cs'
-    },
     methods: {
         back() {
             window.history.back()

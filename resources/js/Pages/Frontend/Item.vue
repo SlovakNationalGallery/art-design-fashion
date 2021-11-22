@@ -1,7 +1,7 @@
 <template>
     <frontend-layout>
         <template #nav v-if="item">
-            {{ item.document.content.additionals.location[1] }}
+            {{ item.document.content.location[1] }}
         </template>
         <template #back>&larr; Zpět</template>
 
@@ -35,7 +35,7 @@ import FrontendLayout from '@/Layouts/FrontendLayout.vue'
 
 export default {
     components: { FrontendLayout },
-    props: ['id'],
+    props: ['id', 'apiUrl'],
     data() {
         return {
             item: null,
@@ -59,8 +59,7 @@ export default {
         }
     },
     created() {
-        const API_URL = `http://localhost:8001/api/items/${this.id}`
-        axios.get(API_URL).then(({ data }) => {
+        axios.get(`${this.apiUrl}/items/${this.id}`).then(({ data }) => {
             this.item = data
         }).catch(() => {
             // error
