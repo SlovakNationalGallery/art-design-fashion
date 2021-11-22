@@ -2,20 +2,20 @@
     <app-layout title="List">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Exhibitions
+                Cabinets
             </h2>
         </template>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <Link :href="route('backend.exhibitions.create')">Add</Link>
+                    <Link :href="route('admin.cabinets.create')">Add</Link>
 
-                    <div v-for="exhibition in exhibitions" :key="exhibition.id">
-                        <div>{{ exhibition.title }}</div>
+                    <div v-for="cabinet in cabinets" :key="cabinet.id">
+                        <div>{{ cabinet.title }}</div>
                         <div>
-                            <Link :href="route('backend.exhibitions.edit', exhibition.id)">Edit</Link>
-                            <Link :href="route('backend.exhibitions.destroy', exhibition.id)" method="delete">Delete</Link>
+                            <Link :href="route('admin.cabinets.edit', cabinet.id)">Edit</Link>
+                            <Link :href="route('admin.cabinets.destroy', cabinet.id)" method="delete">Delete</Link>
                         </div>
                     </div>
 
@@ -34,6 +34,6 @@ export default {
         AppLayout,
         Link,
     },
-    props: ['exhibitions'],
+    props: ['cabinets'],
 }
 </script>

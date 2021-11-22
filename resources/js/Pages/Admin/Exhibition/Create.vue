@@ -29,7 +29,7 @@ export default {
     },
     methods: {
         submit() {
-            this.form.post(this.route('backend.exhibitions.store'))
+            this.form.post(this.route('admin.exhibitions.store'))
         }
     },
 }

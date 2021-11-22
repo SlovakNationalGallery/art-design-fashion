@@ -69,7 +69,7 @@ export default {
         }
     },
     mounted() {
-        axios.get(this.route('backend.exhibitions.index')).then(({ data }) => {
+        axios.get(this.route('admin.exhibitions.index')).then(({ data }) => {
             this.exhibitions = Object.fromEntries(
                 data.map(exhibition => [exhibition.id, exhibition.title])
             )

@@ -12,20 +12,20 @@
                         <div class="flex">
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
-                                <Link :href="route('backend.dashboard')">
+                                <Link :href="route('admin.dashboard')">
                                     <jet-application-mark class="block h-9 w-auto" />
                                 </Link>
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <jet-nav-link :href="route('backend.dashboard')" :active="route().current('backend.dashboard')">
+                                <jet-nav-link :href="route('admin.dashboard')" :active="route().current('admin.dashboard')">
                                     Dashboard
                                 </jet-nav-link>
-                                <jet-nav-link :href="route('backend.exhibitions.index')" :active="route().current('backend.exhibitions.*')">
+                                <jet-nav-link :href="route('admin.exhibitions.index')" :active="route().current('admin.exhibitions.*')">
                                     Exhibitions
                                 </jet-nav-link>
-                                <jet-nav-link :href="route('backend.cabinets.index')" :active="route().current('backend.cabinets.*')">
+                                <jet-nav-link :href="route('admin.cabinets.index')" :active="route().current('admin.cabinets.*')">
                                     Cabinets
                                 </jet-nav-link>
                             </div>
@@ -148,13 +148,13 @@
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <jet-responsive-nav-link :href="route('backend.dashboard')" :active="route().current('backend.dashboard')">
+                        <jet-responsive-nav-link :href="route('admin.dashboard')" :active="route().current('admin.dashboard')">
                             Dashboard
                         </jet-responsive-nav-link>
-                        <jet-responsive-nav-link :href="route('backend.exhibitions.index')" :active="route().current('backend.exhibitions.*')">
+                        <jet-responsive-nav-link :href="route('admin.exhibitions.index')" :active="route().current('admin.exhibitions.*')">
                             Exhibitions
                         </jet-responsive-nav-link>
-                        <jet-responsive-nav-link :href="route('backend.cabinets.index')" :active="route().current('backend.cabinets.*')">
+                        <jet-responsive-nav-link :href="route('admin.cabinets.index')" :active="route().current('admin.cabinets.*')">
                             Cabinets
                         </jet-responsive-nav-link>
                     </div>

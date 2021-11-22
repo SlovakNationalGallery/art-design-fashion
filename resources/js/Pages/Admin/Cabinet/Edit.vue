@@ -1,8 +1,8 @@
 <template>
-    <app-layout title="Create cabinet">
+    <app-layout title="Edit cabinet">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Create cabinet
+                Edit cabinet
             </h2>
         </template>
 
@@ -19,20 +19,21 @@ export default {
         AppLayout,
         CabinetForm,
     },
+    props: ['resource'],
     data() {
         return {
             form: this.$inertia.form({
-                title: '',
-                content: '',
-                location: '',
-                exhibition_id: null,
-                images: null,
-            }),
+                title: this.resource.cabinet.title,
+                content: this.resource.cabinet.content,
+                location: this.resource.cabinet.location,
+                exhibition_id: this.resource.cabinet.exhibition_id,
+                images: this.resource.cabinet.images,
+            })
         }
     },
     methods: {
         submit() {
-            this.form.post(this.route('backend.cabinets.store'))
+            this.form.put(this.route('admin.cabinets.update', this.resource.cabinet.id))
         }
     },
 }

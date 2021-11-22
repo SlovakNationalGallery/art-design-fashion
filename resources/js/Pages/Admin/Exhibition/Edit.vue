@@ -30,7 +30,7 @@ export default {
     },
     methods: {
         submit() {
-            this.form.put(this.route('backend.exhibitions.update', this.exhibition.id))
+            this.form.put(this.route('admin.exhibitions.update', this.exhibition.id))
         }
     },
 }

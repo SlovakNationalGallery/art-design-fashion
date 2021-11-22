@@ -21,7 +21,7 @@ class ExhibitionController extends Controller
             return response()->json($exhibitions);
         }
 
-        return Inertia::render('Backend/Exhibition/List', compact('exhibitions'));
+        return Inertia::render('Admin/Exhibition/List', compact('exhibitions'));
     }
 
     /**
@@ -31,7 +31,7 @@ class ExhibitionController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Backend/Exhibition/Create');
+        return Inertia::render('Admin/Exhibition/Create');
     }
 
     /**
@@ -47,7 +47,7 @@ class ExhibitionController extends Controller
             ->fill($request->all())
             ->save();
 
-        return redirect()->route('backend.exhibitions.index')->with('status', 'exhibition-created');
+        return redirect()->route('admin.exhibitions.index')->with('status', 'exhibition-created');
     }
 
     /**
@@ -69,7 +69,7 @@ class ExhibitionController extends Controller
      */
     public function edit(Exhibition $exhibition)
     {
-        return Inertia::render('Backend/Exhibition/Edit', compact('exhibition'));
+        return Inertia::render('Admin/Exhibition/Edit', compact('exhibition'));
     }
 
     /**
@@ -85,7 +85,7 @@ class ExhibitionController extends Controller
             ->fill($request->all())
             ->save();
 
-        return redirect()->route('backend.exhibitions.index')->with('status', 'exhibition-edited');
+        return redirect()->route('admin.exhibitions.index')->with('status', 'exhibition-edited');
     }
 
     /**
@@ -97,6 +97,6 @@ class ExhibitionController extends Controller
     public function destroy(Exhibition $exhibition)
     {
         $exhibition->delete();
-        return redirect()->route('backend.exhibitions.index')->with('status', 'exhibition-deleted');
+        return redirect()->route('admin.exhibitions.index')->with('status', 'exhibition-deleted');
     }
 }

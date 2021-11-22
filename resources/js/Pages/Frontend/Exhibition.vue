@@ -5,7 +5,7 @@
 
         <div class="flex flex-wrap mx-[-.5vw]">
             <div class="px-[.5vw] py-[1vw] w-1/4" v-for="cabinet in resource.exhibition.cabinets" :key="cabinet.id">
-                <a class="block" :href="route('frontend.cabinets.show', cabinet.id)">
+                <a class="block" :href="route('cabinets.show', cabinet.id)">
                     <div class="bg-gray-500 mb-[.5vw]" v-if="cabinet.images.length">
                         <img class="w-full" :srcset="cabinet.images[0].srcset" :src="cabinet.images[0].url">
                     </div>

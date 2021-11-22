@@ -17,7 +17,7 @@ class CabinetController extends Controller
     public function index()
     {
         $cabinets = Cabinet::all();
-        return Inertia::render('Backend/Cabinet/List', compact('cabinets'));
+        return Inertia::render('Admin/Cabinet/List', compact('cabinets'));
     }
 
     /**
@@ -27,7 +27,7 @@ class CabinetController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Backend/Cabinet/Create');
+        return Inertia::render('Admin/Cabinet/Create');
     }
 
     /**
@@ -47,7 +47,7 @@ class CabinetController extends Controller
             ->addFromMediaLibraryRequest($request->images)
             ->toMediaCollection('images');
 
-        return redirect()->route('backend.cabinets.index');
+        return redirect()->route('admin.cabinets.index');
     }
 
     /**
@@ -70,7 +70,7 @@ class CabinetController extends Controller
     public function edit(Cabinet $cabinet)
     {
         $resource = new CabinetResource($cabinet);
-        return Inertia::render('Backend/Cabinet/Edit', compact('resource'));
+        return Inertia::render('Admin/Cabinet/Edit', compact('resource'));
     }
 
     /**
@@ -90,7 +90,7 @@ class CabinetController extends Controller
             ->syncFromMediaLibraryRequest($request->images)
             ->toMediaCollection('images');
 
-        return redirect()->route('backend.cabinets.index');
+        return redirect()->route('admin.cabinets.index');
     }
 
     /**
@@ -102,6 +102,6 @@ class CabinetController extends Controller
     public function destroy(Cabinet $cabinet)
     {
         $cabinet->delete();
-        return redirect()->route('backend.cabinets.index');
+        return redirect()->route('admin.cabinets.index');
     }
 }
