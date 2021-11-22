@@ -20,6 +20,7 @@ add('shared_files', [
     'auth.json',
 ]);
 add('shared_dirs', [
+    'resources/fonts',
 ]);
 
 // Writable dirs by web server 
