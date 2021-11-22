@@ -10,13 +10,13 @@ Route::get('/exhibitions/{id}', function ($id) {
     $exhibition = Exhibition::with('cabinets.media')->findOrFail($id);
     $resource = new ExhibitionResource($exhibition);
     return Inertia::render('Frontend/Exhibition', compact('resource'));
-})->name('frontend.exhibitions.show');
+})->name('exhibitions.show');
 
 Route::get('/cabinets/{id}', function ($id) {
     $cabinet = Cabinet::findOrFail($id);
     return Inertia::render('Frontend/Cabinet', compact('cabinet'));
-})->name('frontend.cabinets.show');
+})->name('cabinets.show');
 
 Route::get('/items/{id}', function ($id) {
     return Inertia::render('Frontend/Item', compact('id'));
-})->name('frontend.items.show');
+})->name('items.show');

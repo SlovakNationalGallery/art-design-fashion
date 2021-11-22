@@ -29,6 +29,11 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middlewareGroups = [
+        'admin' => [
+            'auth:sanctum',
+            'verified',
+        ],
+
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
