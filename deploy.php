@@ -45,4 +45,4 @@ after('deploy:failed', 'deploy:unlock');
 before('deploy:symlink', 'artisan:migrate');
 
 after('deploy:update_code', 'npm:install');
-after('deploy:shared', 'build');
+after('deploy:vendors', 'build');
