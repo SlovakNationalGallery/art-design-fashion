@@ -17,6 +17,7 @@ set('git_tty', true);
 
 // Shared files/dirs between deploys 
 add('shared_files', [
+    'auth.json',
 ]);
 add('shared_dirs', [
 ]);
