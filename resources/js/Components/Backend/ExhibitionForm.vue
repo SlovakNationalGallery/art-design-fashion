@@ -15,7 +15,7 @@
 
                                 <div class="col-span-6">
                                     <jet-label for="content" value="Content" class="font-bold text-xl" />
-                                    <jet-textarea id="content" type="textarea" class="mt-1 block w-full" v-model="form.content" rows="10" required />
+                                    <jet-textarea id="content" type="textarea" class="mt-1 block w-full" v-model="form.content" rows="10" />
                                 </div>
                             </div>
 
