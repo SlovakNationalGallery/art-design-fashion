@@ -27,7 +27,7 @@ Route::middleware('inertia:frontend')
         })->name('items.show');
     });
 
-Route::middleware('admin', 'inertia:admin')
+Route::middleware('admin')
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
