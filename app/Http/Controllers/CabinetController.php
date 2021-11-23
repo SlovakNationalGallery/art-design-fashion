@@ -16,7 +16,7 @@ class CabinetController extends Controller
      */
     public function index()
     {
-        $cabinets = Cabinet::all();
+        $cabinets = Cabinet::with('exhibition')->get();
         return Inertia::render('Admin/Cabinet/List', compact('cabinets'));
     }
 

@@ -1,46 +1,62 @@
 <template>
+
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+            <div class="mt-5 md:mt-0 md:col-span-2">
 
                 <form @submit.prevent="$emit('submit')">
-                    <div>
-                        <jet-label for="title" value="Title" />
-                        <jet-input id="title" type="text" class="mt-1 block w-full" v-model="form.title" required />
-                    </div>
+                    <div class="shadow overflow-hidden sm:rounded-md">
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <div class="grid grid-cols-6 gap-6">
+                                <div class="col-span-6">
+                                    <jet-label for="title" value="Title" class="font-bold text-xl" required />
+                                    <jet-input id="title" type="text" class="mt-1 block w-full" v-model="form.title" />
+                                </div>
 
-                    <div class="mt-4">
-                        <jet-label for="content" value="Content" />
-                        <jet-textarea id="content" type="textarea" class="mt-1 block w-full" v-model="form.content" required />
-                    </div>
+                                <div class="col-span-6">
+                                    <jet-label for="content" value="Content" class="font-bold text-xl" />
+                                    <jet-textarea id="content" type="textarea" class="mt-1 block w-full" v-model="form.content" rows="10" required />
+                                </div>
 
-                    <div class="mt-4">
-                        <jet-label for="location" value="Location" />
-                        <jet-input id="location" type="text" class="mt-1 block w-full" v-model="form.location" required />
-                    </div>
+                                <div class="col-span-6">
+                                    <jet-label for="location" value="Location" class="font-bold text-xl" />
+                                    <jet-input id="location" type="text" class="mt-1 block w-full" v-model="form.location" required />
+                                </div>
 
-                    <div class="mt-4">
-                        <jet-label for="exhibition_id" value="Exhibition" />
-                        <jet-select id="exhibition_id" :options="exhibitions" class="mt-1 block w-full" v-model="form.exhibition_id" required />
-                    </div>
+                                <div class="col-span-6">
+                                    <jet-label for="exhibition_id" value="Exhibition" class="font-bold text-xl" />
+                                    <jet-select id="exhibition_id" :options="exhibitions" class="mt-1 block w-full" v-model="form.exhibition_id" required />
+                                </div>
 
-                    <media-library-attachment
-                        name="images"
-                        route-prefix="admin/media-library-pro"
-                        :initial-value="form.images"
-                        @is-ready-to-submit-change="isReadyToSubmit = $event"
-                        @change="onImagesChange" />
+                                <div class="col-span-6 sm:col-span-4">
+                                    <jet-label for="images" value="Image" class="font-bold text-xl" />
+                                    <div class="mt-1">
+                                        <media-library-attachment
+                                            id="images"
+                                            name="images"
+                                            route-prefix="admin/media-library-pro"
+                                            :initial-value="form.images"
+                                            rules="mimes:jpeg,png"
+                                            @is-ready-to-submit-change="isReadyToSubmit = $event"
+                                            @change="onImagesChange" />
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div class="flex items-center justify-end mt-4">
-                        <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing || !isReadyToSubmit">
-                            Save
-                        </jet-button>
+                            <div class="flex items-center justify-end mt-4">
+                                <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing || !isReadyToSubmit">
+                                    Save
+                                </jet-button>
+                            </div>
+                        </div>
                     </div>
                 </form>
 
             </div>
         </div>
     </div>
+
+
 </template>
 
 <script>
@@ -58,7 +74,7 @@ export default {
         JetLabel,
         JetSelect,
         JetTextarea,
-        MediaLibraryAttachment,
+        MediaLibraryAttachment
     },
     props: ['form'],
     emits: ['submit'],
