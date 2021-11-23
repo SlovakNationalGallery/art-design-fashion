@@ -38,7 +38,7 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request)
     {
         return array_merge(parent::share($request), [
-            'apiUrl' => env('API_URL', 'https://sbirky.moravska-galerie.cz/api'),
+            'apiUrl' => config('app.api_url'),
         ]);
     }
 

@@ -12,13 +12,19 @@
             </div>
         </div>
 
-        <div class="flex flex-wrap mx-[-.5vw]" v-if="$slots.content">
-            <div class="ml-[25%] pb-[1vw] px-[.5vw] text-lg w-1/2"><slot name="content"></slot></div>
+        <div class="flex flex-wrap mx-[-.5vw]">
+            <div class="ml-[25%] pb-[1vw] px-[.5vw] text-lg w-1/2" data-content><slot name="content"></slot></div>
         </div>
 
         <slot></slot>
     </div>
 </template>
+
+<style scoped>
+[data-content]:empty {
+    display: none;
+}
+</style>
 
 <script>
 export default {
