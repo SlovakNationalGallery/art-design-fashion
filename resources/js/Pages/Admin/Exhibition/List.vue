@@ -29,7 +29,8 @@
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    <!-- <a href="{{ route('admin.articles.edit', $article) }}" class="text-indigo-600 hover:text-indigo-900">Upraviť</a> -->
+                                                    <a :href="route('exhibitions.show', exhibition.id)" class="ml-4 text-indigo-600 hover:text-indigo-900" target="_blank">Show</a>
+                                                    <Link :href="route('admin.exhibitions.edit', exhibition.id)" class="ml-4 text-indigo-600 hover:text-indigo-900">Edit</Link>
                                                 </td>
                                             </tr>
                                         </tbody>
