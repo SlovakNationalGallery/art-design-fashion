@@ -28,5 +28,8 @@ import FrontendLayout from '@/Layouts/FrontendLayout.vue'
 export default {
     components: { FrontendLayout },
     props: ['resource'],
+    mounted() {
+        localStorage.setItem('exhibition', this.resource.exhibition.id)
+    }
 }
 </script>

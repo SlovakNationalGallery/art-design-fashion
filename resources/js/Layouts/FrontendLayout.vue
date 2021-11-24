@@ -28,10 +28,38 @@
 
 <script>
 export default {
+    data() {
+        return {
+            idleTimeout: null,
+        }
+    },
     methods: {
         back() {
             window.history.back()
+        },
+        initIdleTimer() {
+            // Reset the idle timeout on any of the events listed below
+            for (const event of ['click', 'touchstart', 'mousemove']) {
+                document.addEventListener(event, this.resetIdleTimer, false)
+            }
+
+            // Start the timer
+            this.resetIdleTimer()
+        },
+        resetIdleTimer() {
+            if (this.idleTimeout) clearTimeout(this.idleTimeout)
+
+            const id = localStorage.getItem('exhibition')
+
+            if (id) {
+                const fiveMinutes = 1000 * 60 * 5
+                const redirectUrl = this.route('exhibitions.show', id)
+                this.idleTimeout = setTimeout(() => location.href = redirectUrl, fiveMinutes)
+            }
         }
+    },
+    mounted() {
+        this.initIdleTimer()
     }
 }
 </script>
