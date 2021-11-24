@@ -54,7 +54,6 @@ export default {
                 'identifier': 'Inventární číslo',
                 'aquisition_date': 'Datum akvizice',
                 'place': 'Místo vzniku',
-                'location': 'Lokace',
             },
         }
     },
