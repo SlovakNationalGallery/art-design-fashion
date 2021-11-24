@@ -19,6 +19,7 @@ class MediaResource extends JsonResource
         $array = parent::toArray($request);
         $array['srcset'] = $this->getSrcset();
         $array['url'] = $this->getUrl();
+        $array['html'] = $this->toHtml();
         return $array;
     }
 }

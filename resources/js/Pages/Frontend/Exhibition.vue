@@ -6,8 +6,8 @@
         <div v-masonry="masonry" item-selector="[data-masonry-tile]" transition-duration="0" class="mx-[-.5vw]">
             <div v-masonry-tile class="px-[.5vw] py-[1vw] w-1/4" v-for="cabinet in resource.exhibition.cabinets" :key="cabinet.id" data-masonry-tile>
                 <a class="block" :href="route('cabinets.show', cabinet.id)">
-                    <div class="bg-gray-500 mb-[.5vw]" v-if="cabinet.images.length">
-                        <img class="w-full" :srcset="cabinet.images[0].srcset">
+                    <div class="bg-gray-500 mb-[.5vw]" v-if="cabinet.images.length" data-image-container>
+                        <span v-html="cabinet.images[0].html"></span>
                     </div>
                     <div class="font-bold uppercase">{{ cabinet.title }}</div>
                 </a>
@@ -15,6 +15,12 @@
         </div>
     </frontend-layout>
 </template>
+
+<style>
+[data-image-container] img {
+    width: 100%;
+}
+</style>
 
 <script>
 import FrontendLayout from '@/Layouts/FrontendLayout.vue'
