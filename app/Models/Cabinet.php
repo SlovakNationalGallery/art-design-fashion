@@ -31,6 +31,11 @@ class Cabinet extends Model implements HasMedia
             ->addMediaConversion('preview')
             ->fit(Manipulations::FIT_CROP, 300, 300)
             ->nonQueued();
+
+        $this
+            ->addMediaConversion('thumbnail')
+            ->width(600)
+            ->nonQueued();
     }
 
     public function registerMediaCollections(): void
