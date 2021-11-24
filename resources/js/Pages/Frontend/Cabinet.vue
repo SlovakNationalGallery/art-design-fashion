@@ -14,6 +14,7 @@
                 </a>
             </div>
         </div>
+        <div ref="last"></div>
     </frontend-layout>
 </template>
 
@@ -26,6 +27,8 @@ export default {
     data() {
         return {
             items: [],
+            page: 1,
+            observer: new IntersectionObserver(this.observerCallback),
         }
     },
     methods: {
@@ -34,17 +37,35 @@ export default {
             return {
                 // paddingBottom: ratio ? `${1 / ratio * 100}%` : '114.4%'
             }
-        }
+        },
+        loadItems() {
+            axios.get(`${this.apiUrl}/items`, {
+                params: {
+                    'filter[location]': this.cabinet.location,
+                    size: 12,
+                    page: this.page,
+                }
+            }).then(({ data }) => {
+                if (data.data.length) {
+                    this.page += 1
+                    this.items.push(...data.data)
+                    this.$nextTick(() => {
+                        this.observer.observe(this.$refs.last)
+                    })
+                }
+            })
+        },
+        observerCallback(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.observer.unobserve(entry.target)
+                    this.loadItems()
+                }
+            })
+        },
     },
-    created() {
-        axios.get(`${this.apiUrl}/items`, {
-            params: {
-                'filter[location]': this.cabinet.location,
-                size: 10000,
-            }
-        }).then(({ data }) => {
-            this.items = data.data
-        })
+    mounted() {
+        this.loadItems()
     }
 }
 </script>
