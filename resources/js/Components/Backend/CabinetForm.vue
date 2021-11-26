@@ -9,18 +9,18 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-6">
-                                    <jet-label for="title" value="Title" class="font-bold text-xl" required />
+                                    <jet-label for="location" value="Location" class="font-bold text-xl" />
+                                    <jet-input id="location" type="text" class="mt-1 block w-full" v-model="form.location" required />
+                                </div>
+
+                                <div class="col-span-6">
+                                    <jet-label for="title" value="Title" class="font-bold text-xl" />
                                     <jet-input id="title" type="text" class="mt-1 block w-full" v-model="form.title" />
                                 </div>
 
                                 <div class="col-span-6">
                                     <jet-label for="content" value="Content" class="font-bold text-xl" />
                                     <jet-textarea id="content" type="textarea" class="mt-1 block w-full" v-model="form.content" rows="10" />
-                                </div>
-
-                                <div class="col-span-6">
-                                    <jet-label for="location" value="Location" class="font-bold text-xl" />
-                                    <jet-input id="location" type="text" class="mt-1 block w-full" v-model="form.location" required />
                                 </div>
 
                                 <div class="col-span-6">

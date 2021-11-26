@@ -22,7 +22,7 @@
                                                     <div class="flex items-start">
                                                         <div class="ml-4">
                                                             <div class="text-md font-medium text-gray-900">
-                                                                <Link :href="route('admin.cabinets.edit', cabinet.id)">{{ cabinet.title }} ({{ cabinet.location }})</Link>
+                                                                <Link :href="route('admin.cabinets.edit', cabinet.id)">{{ cabinet.location }}<span class="text-xs" v-if="cabinet.title"><br>{{ cabinet.title }}</span></Link>
                                                             </div>
                                                         </div>
                                                     </div>
