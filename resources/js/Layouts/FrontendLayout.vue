@@ -6,9 +6,9 @@
                 <span>Design</span>
                 <span>Fashion</span>
             </div>
-            <div class="flex justify-between px-[.5vw] md:ml-20">
-                <span><slot name="nav"></slot></span>
-                <span class="cursor-pointer" @click.once="back"><slot name="back"></slot></span>
+            <div class="flex flex-wrap justify-end px-[.5vw] md:ml-20 flex-grow">
+                <span class="flex-grow"><slot name="nav"></slot></span>
+                <span class="cursor-pointer ml-5" @click.once="back"><slot name="back"></slot></span>
             </div>
         </div>
 

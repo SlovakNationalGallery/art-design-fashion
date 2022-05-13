@@ -12,7 +12,7 @@
                         <!-- <span v-html="cabinet.images[0].html"></span> -->
                         <img class="w-full" :src="cabinet.images[0].thumbnail">
                     </div>
-                    <div class="font-bold uppercase text-[.75rem] md:text-base">{{ cabinet.title }}</div>
+                    <div class="uppercase text-[1rem] md:text-base">{{ cabinet.title }}</div>
                 </a>
             </div>
         </div>

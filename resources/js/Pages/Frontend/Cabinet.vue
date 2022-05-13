@@ -7,12 +7,12 @@
         </template>
 
         <div v-masonry="masonry" item-selector="[data-masonry-tile]" transition-duration="0" class="mx-[-.5vw]">
-            <div v-masonry-tile class="px-[.5vw] py-[1vw] w-1/3" v-for="item in items" :key="`item_${item.id}`" data-masonry-tile>
+            <div v-masonry-tile class="px-[.5vw] py-[1vw] md:w-1/3" v-for="item in items" :key="`item_${item.id}`" data-masonry-tile>
                 <a class="block" :href="route('items.show', item.document.id)">
                     <div class="bg-gray-500 mb-[.5vw] relative" :style="style(item)">
                         <img class="h-full w-full" :src="item.model.image_url" alt="">
                     </div>
-                    <div class="uppercase">{{ item.document.content.title }}</div>
+                    <div class="uppercase text-[1rem] md:text-base">{{ item.document.content.title }}</div>
                 </a>
             </div>
         </div>
