@@ -20,7 +20,7 @@
 
                                 <div class="col-span-6">
                                     <jet-label for="content" value="Content" class="font-bold text-xl" />
-                                    <jet-textarea id="content" type="textarea" class="mt-1 block w-full" v-model="form.content" rows="10" />
+                                    <jet-wysiwyg-editor id="content" class="mt-1 block w-full" v-model="form.content" />
                                 </div>
 
                                 <div class="col-span-6">
@@ -64,7 +64,7 @@ import JetButton from '@/Jetstream/Button.vue'
 import JetInput from '@/Jetstream/Input.vue'
 import JetLabel from '@/Jetstream/Label.vue'
 import JetSelect from '@/Jetstream/Select.vue'
-import JetTextarea from '@/Jetstream/Textarea.vue'
+import JetWysiwygEditor from '@/Jetstream/WysiwygEditor.vue'
 import { MediaLibraryAttachment } from "media-library-pro-vue3-attachment";
 
 export default {
@@ -73,7 +73,7 @@ export default {
         JetInput,
         JetLabel,
         JetSelect,
-        JetTextarea,
+        JetWysiwygEditor,
         MediaLibraryAttachment
     },
     props: ['form'],

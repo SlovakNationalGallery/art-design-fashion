@@ -15,7 +15,7 @@
 
                                 <div class="col-span-6">
                                     <jet-label for="content" value="Content" class="font-bold text-xl" />
-                                    <jet-textarea id="content" type="textarea" class="mt-1 block w-full" v-model="form.content" rows="10" />
+                                    <jet-wysiwyg-editor id="content" class="mt-1 block w-full" v-model="form.content" />
                                 </div>
                             </div>
 
@@ -38,14 +38,14 @@
 import JetButton from '@/Jetstream/Button.vue'
 import JetInput from '@/Jetstream/Input.vue'
 import JetLabel from '@/Jetstream/Label.vue'
-import JetTextarea from '@/Jetstream/Textarea.vue'
+import JetWysiwygEditor from '@/Jetstream/WysiwygEditor.vue'
 
 export default {
     components: {
         JetButton,
         JetInput,
         JetLabel,
-        JetTextarea,
+        JetWysiwygEditor,
     },
     props: ['form'],
     emits: ['submit'],

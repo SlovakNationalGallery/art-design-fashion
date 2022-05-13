@@ -2,7 +2,9 @@
     <frontend-layout>
         <template #nav>{{ cabinet.title }}</template>
         <template #back>&larr; Zpět</template>
-        <template #content>{{ cabinet.content }}</template>
+        <template #content>
+            <div v-html="cabinet.content" class="font-normal" />
+        </template>
 
         <div v-masonry="masonry" item-selector="[data-masonry-tile]" transition-duration="0" class="mx-[-.5vw]">
             <div v-masonry-tile class="px-[.5vw] py-[1vw] w-1/3" v-for="item in items" :key="`item_${item.id}`" data-masonry-tile>

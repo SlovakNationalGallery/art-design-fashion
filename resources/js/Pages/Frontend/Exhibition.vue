@@ -1,7 +1,9 @@
 <template>
     <frontend-layout>
         <template #nav>{{ resource.exhibition.title }}</template>
-        <template #content>{{ resource.exhibition.content }}</template>
+        <template #content>
+            <div v-html="resource.exhibition.content" class="font-normal" />
+        </template>
 
         <div v-masonry="masonry" item-selector="[data-masonry-tile]" transition-duration="0" class="mx-[-.5vw]">
             <div v-masonry-tile class="px-[.5vw] py-[1vw] md:w-1/3" v-for="cabinet in resource.exhibition.cabinets" :key="cabinet.id" data-masonry-tile>
