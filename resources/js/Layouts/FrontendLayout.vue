@@ -1,19 +1,19 @@
 <template>
     <div class="pb-[4vw] px-[2vw]">
-        <div class="flex font-display mx-[-.5vw] my-[.5vw] text-[3vw] uppercase">
-            <div class="px-[.5vw] w-1/4">
-                <span class="pr-[1vw]">Art</span>
-                <span class="pr-[1vw]">Design</span>
+        <div class="md:flex font-display mx-[-.5vw] my-[.5vw] text-[3rem] md:text-[3vw] uppercase">
+            <div class="px-[.5vw] md:w-1/4 space-x-4 md:space-x-[1vw]">
+                <span>Art</span>
+                <span>Design</span>
                 <span>Fashion</span>
             </div>
-            <div class="flex justify-between px-[.5vw] w-3/4">
+            <div class="flex justify-between px-[.5vw] md:ml-20">
                 <span><slot name="nav"></slot></span>
                 <span class="cursor-pointer" @click.once="back"><slot name="back"></slot></span>
             </div>
         </div>
 
         <div class="flex flex-wrap mx-[-.5vw]">
-            <div class="ml-[25%] pb-[1vw] px-[.5vw] text-lg w-1/2" data-content><slot name="content"></slot></div>
+            <div class="md:ml-[25%] pb-[1vw] px-[.5vw] text-[1rem] md:text-lg w-1/2" data-content><slot name="content"></slot></div>
         </div>
 
         <slot></slot>
