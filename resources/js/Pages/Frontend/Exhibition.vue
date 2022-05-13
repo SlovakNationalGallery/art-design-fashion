@@ -10,7 +10,6 @@
                         <!-- <span v-html="cabinet.images[0].html"></span> -->
                         <img class="w-full" :src="cabinet.images[0].thumbnail">
                     </div>
-                    <div class="font-bold uppercase">{{ cabinet.location }}</div>
                     <div class="font-bold uppercase">{{ cabinet.title }}</div>
                 </a>
             </div>
