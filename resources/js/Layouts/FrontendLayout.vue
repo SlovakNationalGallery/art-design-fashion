@@ -13,7 +13,7 @@
         </div>
 
         <div class="flex flex-wrap mx-[-.5vw]">
-            <div class="md:ml-[25%] pb-[1vw] px-[.5vw] text-[1rem] md:text-lg w-1/2" data-content><slot name="content"></slot></div>
+            <div class="md:ml-[25%] pb-[1vw] px-[.5vw] text-[1rem] md:text-lg md:w-1/2" data-content><slot name="content"></slot></div>
         </div>
 
         <slot></slot>
