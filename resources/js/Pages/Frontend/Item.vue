@@ -5,24 +5,29 @@
         </template>
         <template #back>&larr; Zpět</template>
 
-        <div class="flex mx-[-1.5vw]" v-if="item">
-            <div class="w-1/2 px-[1.5vw] py-[.5vw]">
+        <div class="md:flex mx-[-1.5vw] mt-4 md:mt-0" v-if="item">
+            <div class="px-[1.5vw] text-[1.5rem] md:hidden">
+                <p>{{ item.document.content.title }}</p>
+                <p>{{ item.document.content.dating }}</p>
+                <p>{{ item.document.content.author.join(', ') }}</p>
+            </div>
+            <div class="md:w-1/2 px-[1.5vw] py-[.5vw] mt-4 md:mt-0">
                 <img class="mx-auto" :src="item.model.image_url" alt="">
             </div>
-            <div class="w-1/2 px-[1.5vw] py-[.5vw]">
-                <div class="mb-[2vw] text-2xl">
+            <div class="md:w-1/2 px-[1.5vw] py-[.5vw] mt-2 md:mt-0">
+                <div class="mb-[2vw] text-2xl hidden md:block">
                     <p>{{ item.document.content.title }}</p>
                     <p>{{ item.document.content.dating }}</p>
                     <p>{{ item.document.content.author.join(', ') }}</p>
                 </div>
-                <div class="my-[2vw] text-lg">
+                <div class="my-[2vw] text-[1rem] md:text-lg">
                     <p v-for="(label, attr) in attrs" :key="attr">
                         <template v-if="formatAttr(item.document.content[attr])">
                             {{ label }} &ndash; {{ formatAttr(item.document.content[attr]) }}
                         </template>
                     </p>
                 </div>
-                <p class="my-[2vw] max-w-[40vw] text-lg">
+                <p class="my-[2vw] max-w-[40vw] text-[1rem] md:text-lg">
                     {{ item.document.content.description }}
                 </p>
             </div>
