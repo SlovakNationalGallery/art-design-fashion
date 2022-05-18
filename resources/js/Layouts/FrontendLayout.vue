@@ -1,5 +1,5 @@
 <template>
-    <div class="pb-[4vw] px-[2vw]">
+    <div class="pb-[4vw] px-4 md:px-[2vw]">
         <div class="md:flex font-display mx-[-.5vw] my-[.5vw] text-[3rem] md:text-[3vw] uppercase">
             <div class="px-[.5vw] md:w-1/4 space-x-4 md:space-x-[1vw]">
                 <span>Art</span>

@@ -27,9 +27,7 @@
                         </template>
                     </p>
                 </div>
-                <p class="my-[2vw] max-w-[40vw] text-[1rem] md:text-lg">
-                    {{ item.document.content.description }}
-                </p>
+                <p class="my-4 md:my-[2vw] max-w-md md:max-w-[40vw] text-[1rem] md:text-lg" v-html="item.document.content.description" />
             </div>
         </div>
     </frontend-layout>
