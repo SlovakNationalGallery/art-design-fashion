@@ -27,7 +27,7 @@
                         </template>
                     </p>
                 </div>
-                <p class="my-4 md:my-[2vw] max-w-md md:max-w-[40vw] text-[1rem] md:text-lg" v-html="item.document.content.description" />
+                <p class="my-4 md:my-[2vw] max-w-md md:max-w-[40vw] text-[1rem] md:text-lg" v-html="descriptionHtml" />
             </div>
         </div>
     </frontend-layout>
@@ -66,6 +66,11 @@ export default {
         }).catch(() => {
             // error
         })
+    },
+    computed: {
+        descriptionHtml() {
+            return this.item.document.content.description.replaceAll("\r", "").replaceAll("\n", "<br>")
+        }
     },
     methods: {
         formatAttr(attr) {
