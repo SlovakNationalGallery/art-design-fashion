@@ -28,6 +28,11 @@
                                     <jet-select id="exhibition_id" :options="exhibitions" class="mt-1 block w-full" v-model="form.exhibition_id" required />
                                 </div>
 
+                                <div class="col-span-6">
+                                    <jet-label for="position" value="Position" class="font-bold text-xl" />
+                                    <jet-input id="position" type="number" class="mt-1 block w-full" v-model="form.position" required />
+                                </div>
+
                                 <div class="col-span-6 sm:col-span-4">
                                     <jet-label for="images" value="Image" class="font-bold text-xl" />
                                     <div class="mt-1">

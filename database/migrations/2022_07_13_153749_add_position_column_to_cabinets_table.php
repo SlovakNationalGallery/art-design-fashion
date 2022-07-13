@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class NullableTitleInCabinetsTable extends Migration
+class AddPositionColumnToCabinetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,9 @@ class NullableTitleInCabinetsTable extends Migration
     public function up()
     {
         Schema::table('cabinets', function (Blueprint $table) {
-            $table->text('title')->nullable()->change();
+            $table->integer('position')
+                ->after('updated_at')
+                ->nullable();
         });
     }
 
@@ -26,6 +28,7 @@ class NullableTitleInCabinetsTable extends Migration
     public function down()
     {
         Schema::table('cabinets', function (Blueprint $table) {
+            $table->dropColumn('position');
         });
     }
 }

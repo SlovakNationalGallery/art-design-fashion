@@ -16,6 +16,6 @@ class Exhibition extends Model
 
     public function cabinets()
     {
-        return $this->hasMany(Cabinet::class);
+        return $this->hasMany(Cabinet::class)->orderBy('position');
     }
 }

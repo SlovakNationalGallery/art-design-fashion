@@ -14,4 +14,9 @@ class CreateTemporaryUploadsTable extends Migration
             $table->timestamps();
         });
     }
+
+    public function down()
+    {
+        Schema::drop('temporary_uploads');
+    }
 }

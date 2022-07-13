@@ -18,6 +18,7 @@ class Cabinet extends Model implements HasMedia
         'content',
         'location',
         'exhibition_id',
+        'position',
     ];
 
     public function exhibition()

@@ -28,11 +28,5 @@ class NullableContent extends Migration
      */
     public function down()
     {
-        Schema::table('exhibitions', function (Blueprint $table) {
-            $table->text('content')->nullable(false)->change();
-        });
-        Schema::table('cabinets', function (Blueprint $table) {
-            $table->text('content')->nullable(false)->change();
-        });
     }
 }

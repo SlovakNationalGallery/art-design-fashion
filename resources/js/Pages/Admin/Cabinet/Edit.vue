@@ -11,15 +11,15 @@
 </template>
 
 <script>
-import AppLayout from '@/Layouts/AppLayout.vue'
-import CabinetForm from '@/Components/Backend/CabinetForm.vue'
+import AppLayout from "@/Layouts/AppLayout.vue";
+import CabinetForm from "@/Components/Backend/CabinetForm.vue";
 
 export default {
     components: {
         AppLayout,
         CabinetForm,
     },
-    props: ['resource'],
+    props: ["resource"],
     data() {
         return {
             form: this.$inertia.form({
@@ -28,13 +28,16 @@ export default {
                 location: this.resource.cabinet.location,
                 exhibition_id: this.resource.cabinet.exhibition_id,
                 images: this.resource.cabinet.images,
-            })
-        }
+                position: this.resource.cabinet.position,
+            }),
+        };
     },
     methods: {
         submit() {
-            this.form.put(this.route('admin.cabinets.update', this.resource.cabinet.id))
-        }
+            this.form.put(
+                this.route("admin.cabinets.update", this.resource.cabinet.id)
+            );
+        },
     },
-}
+};
 </script>
