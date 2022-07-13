@@ -57,6 +57,10 @@
         font-style: normal;
         font-display: swap;
     }
+
+    hr {
+        @apply border-black my-2;
+    }
 }
 
 @layer components {
