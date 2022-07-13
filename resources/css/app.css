@@ -59,7 +59,7 @@
     }
 
     hr {
-        @apply border-black my-2;
+        @apply border-black my-4;
     }
 }
 
