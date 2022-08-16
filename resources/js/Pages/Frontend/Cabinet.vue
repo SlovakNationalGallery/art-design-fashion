@@ -49,8 +49,14 @@ export default {
                 }
             }).then(({ data }) => {
                 if (data.data.length) {
+                    if (this.page === 1 && data.data.length === 1) {
+                        window.location = `/items/${data.data[0].document.id}`
+                        return
+                    }
+
                     this.page += 1
                     this.items.push(...data.data)
+
                     this.$nextTick(() => {
                         this.observer.observe(this.$refs.last)
                     })
